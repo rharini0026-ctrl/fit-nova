@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coach & Admin Dashboard | FitBuddy</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-page">
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/" class="brand">
+        <span class="brand-icon">⚡</span>
+        <span class="brand-text">Fit<span class="highlight">Buddy</span> Coach Admin</span>
+      </a>
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/dashboard" class="btn btn-secondary">User Dashboard</a>
+        <a href="/#plan-form" class="btn btn-primary">+ New User Assessment</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <div class="admin-header">
+      <h2>Registered Users & AI Plans</h2>
+      <p>Monitor member profiles, original vs updated AI workout plans, and user refinement feedback.</p>
+    </div>
+
+    <!-- Admin Filter & Search -->
+    <div class="filter-bar">
+      <input type="text" id="admin-search" class="search-input" placeholder="Search by name or User ID..." oninput="filterAdminTable()">
+      <select id="filter-goal" class="filter-select" onchange="filterAdminTable()">
+        <option value="">All Goals</option>
+        <option value="General wellness">General wellness</option>
+        <option value="Weight management">Weight management</option>
+        <option value="Strength">Strength</option>
+        <option value="Muscle building">Muscle building</option>
+        <option value="Flexibility">Flexibility</option>
+        <option value="Endurance">Endurance</option>
+      </select>
+    </div>
+
+    <!-- Users Table -->
+    <div class="table-card">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>User ID</th>
+            <th>Name</th>
+            <th>Age / Wt</th>
+            <th>Goal</th>
+            <th>Experience</th>
+            <th>Schedule</th>
+            <th>Plan Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="admin-users-tbody">
+          <!-- Populated by JS -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="/static/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refine Plan | FitBuddy AI</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="dashboard-page">
+  <div class="container" style="max-width: 600px; margin-top: 50px;">
+    <div class="form-card">
+      <h2>Refine Your Fitness Plan</h2>
+      <p>Submit your thoughts or request modifications. FitBuddy AI will retain your baseline while re-balancing your routine.</p>
+      <form id="standalone-feedback-form" action="/submit-feedback" method="POST">
+        <div class="form-group">
+          <label for="feedback-uid">User ID</label>
+          <input type="text" id="feedback-uid" name="user_id" required>
+        </div>
+        <div class="form-group">
+          <label for="feedback-content">What would you like to improve?</label>
+          <textarea id="feedback-content" name="feedback" rows="4" placeholder="e.g. Add 10 mins cardio, increase rest time, or switch to dumbbells..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit Feedback</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FITBUDDY – AI Fitness Plan Generator</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/" class="brand">
+        <span class="brand-icon">⚡</span>
+        <span class="brand-text">Fit<span class="highlight">Buddy</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="/dashboard" class="btn btn-secondary">Dashboard</a>
+        <a href="/admin" class="btn btn-outline">Coach Admin</a>
+        <a href="#plan-form" class="btn btn-primary">Create Plan</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="badge">AI-POWERED FITNESS COMPANION</div>
+        <h1 class="hero-title">Your Personalized <span class="gradient-text">7-Day Fitness Plan</span> In Seconds</h1>
+        <p class="hero-subtitle">
+          Safe, beginner-friendly, and scientifically tailored workouts generated specifically for your body, available equipment, and weekly schedule.
+        </p>
+        <div class="hero-actions">
+          <a href="#plan-form" class="btn btn-primary btn-lg">Create My Fitness Plan →</a>
+          <a href="/dashboard" class="btn btn-secondary btn-lg">Explore Sample Plan</a>
+        </div>
+        <div class="trust-bar">
+          <div class="trust-item">✓ Joint-Safe Progression</div>
+          <div class="trust-item">✓ Built-In Recovery Days</div>
+          <div class="trust-item">✓ Nutrition & Sleep Tips</div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="preview-card">
+          <div class="card-header">
+            <span class="dot green"></span><span class="dot yellow"></span><span class="dot red"></span>
+            <span class="card-tag">Gemini 3.8 Flash AI Model</span>
+          </div>
+          <div class="preview-content">
+            <div class="day-chip">DAY 1 • FULL BODY FOUNDATION</div>
+            <h3>Push & Core Activation</h3>
+            <ul class="preview-list">
+              <li>Warm-up: Dynamic Joint Circles (6 mins)</li>
+              <li>Dumbbell Bench Press: 3 sets x 10 reps (75s rest)</li>
+              <li>Goblet Squats: 3 sets x 12 reps (90s rest)</li>
+              <li>Cool-down: Diaphragmatic Breathing & Stretch</li>
+            </ul>
+            <div class="preview-footer">
+              <span>Personalized for: Strength & Wellness</span>
+              <span class="status-pill">Active Plan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Safety Banner -->
+  <section class="safety-banner">
+    <div class="container">
+      <div class="safety-box">
+        <div class="safety-icon">🛡️</div>
+        <div>
+          <h4>Important Health & Safety Notice</h4>
+          <p>FitBuddy provides general wellness and fitness educational plans. It does not diagnose medical conditions or prescribe extreme diets. If you have an injury, chronic medical condition, or are pregnant, please consult a qualified physician before starting any exercise program.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fitness Plan Questionnaire Form -->
+  <section id="plan-form" class="form-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Build Your Custom 7-Day Plan</h2>
+        <p>Answer a few questions to help our AI craft your personalized workout and recovery schedule.</p>
+      </div>
+
+      <form id="fitness-form" class="form-card" method="POST" action="/generate-workout">
+        <div class="form-grid">
+          <!-- User ID & Name -->
+          <div class="form-group">
+            <label for="name">Your Full Name *</label>
+            <input type="text" id="name" name="name" placeholder="e.g. Jordan Smith" required>
+          </div>
+
+          <div class="form-group">
+            <label for="user_id">User ID (Handle) *</label>
+            <input type="text" id="user_id" name="user_id" placeholder="e.g. jordan-fit-99" required>
+          </div>
+
+          <!-- Age & Weight -->
+          <div class="form-group">
+            <label for="age">Age (years) *</label>
+            <input type="number" id="age" name="age" min="14" max="100" value="28" required>
+          </div>
+
+          <div class="form-group">
+            <label for="weight">Weight (kg) *</label>
+            <input type="number" id="weight" name="weight" min="30" max="250" value="70" required>
+          </div>
+
+          <!-- Goal -->
+          <div class="form-group">
+            <label for="goal">Primary Fitness Goal *</label>
+            <select id="goal" name="goal" required>
+              <option value="General wellness">General wellness</option>
+              <option value="Weight management">Weight management</option>
+              <option value="Strength">Strength</option>
+              <option value="Muscle building">Muscle building</option>
+              <option value="Flexibility">Flexibility</option>
+              <option value="Endurance">Endurance</option>
+            </select>
+          </div>
+
+          <!-- Experience -->
+          <div class="form-group">
+            <label for="experience">Fitness Experience Level *</label>
+            <select id="experience" name="experience" required>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+          </div>
+
+          <!-- Intensity -->
+          <div class="form-group">
+            <label for="intensity">Preferred Workout Intensity *</label>
+            <select id="intensity" name="intensity" required>
+              <option value="Beginner / Low">Beginner / Low</option>
+              <option value="Moderate / Medium" selected>Moderate / Medium</option>
+              <option value="Advanced / High">Advanced / High</option>
+            </select>
+          </div>
+
+          <!-- Workout Days -->
+          <div class="form-group">
+            <label for="workout_days">Available Workout Days (1 - 7) *</label>
+            <input type="number" id="workout_days" name="workout_days" min="1" max="7" value="3" required>
+            <small class="hint">Remaining days will be scheduled as dedicated Rest & Recovery.</small>
+          </div>
+
+          <!-- Duration -->
+          <div class="form-group">
+            <label for="workout_duration">Preferred Session Duration *</label>
+            <select id="workout_duration" name="workout_duration" required>
+              <option value="15-30 min">15-30 min</option>
+              <option value="30-45 min" selected>30-45 min</option>
+              <option value="45-60 min">45-60 min</option>
+              <option value="60+ min">60+ min</option>
+            </select>
+          </div>
+
+          <!-- Equipment -->
+          <div class="form-group">
+            <label for="equipment">Equipment Availability *</label>
+            <select id="equipment" name="equipment" required>
+              <option value="No equipment">No equipment (Bodyweight only)</option>
+              <option value="Home equipment">Home equipment (Dumbbells / Bands)</option>
+              <option value="Gym equipment">Gym equipment (Full Gym Access)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-footer">
+          <button type="submit" id="submit-btn" class="btn btn-primary btn-block btn-lg">
+            ✨ Generate My 7-Day Plan with Gemini
+          </button>
+          <div id="loading-spinner" class="spinner-container hidden">
+            <div class="spinner"></div>
+            <p>FitBuddy AI is crafting your science-backed 7-day workout plan...</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div>
+        <h4>FitBuddy AI</h4>
+        <p>Your AI-Powered Personal Fitness Companion.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/admin">Coach Admin</a>
+        <a href="/docs">FastAPI Docs</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/static/js/script.js"></script>
+</body>
+</html>

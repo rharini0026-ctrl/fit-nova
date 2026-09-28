@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard | FitBuddy</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-page">
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/" class="brand">
+        <span class="brand-icon">⚡</span>
+        <span class="brand-text">Fit<span class="highlight">Buddy</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/admin" class="btn btn-outline">Coach Admin</a>
+        <a href="/#plan-form" class="btn btn-primary">+ Generate New Plan</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <div class="dashboard-banner">
+      <h1 id="welcome-msg">Athlete Dashboard</h1>
+      <p>Manage your custom 7-day workouts, compare original vs updated plans, and view nutrition advice.</p>
+    </div>
+
+    <!-- User switcher & Profile summary -->
+    <div class="profile-card">
+      <div class="profile-details">
+        <h3 id="dash-name">Athlete Profile</h3>
+        <p id="dash-meta">Goal: General Wellness | Intensity: Moderate | 3 Days/week</p>
+      </div>
+      <div class="dash-actions">
+        <a href="/" class="btn btn-secondary">New Assessment</a>
+      </div>
+    </div>
+
+    <!-- Active Plan Section -->
+    <div id="plan-container">
+      <div class="tabs-header">
+        <button id="tab-current" class="tab-btn active" onclick="switchDashboardTab('current')">Active Plan</button>
+        <button id="tab-original" class="tab-btn" onclick="switchDashboardTab('original')">Original Plan</button>
+        <button id="tab-nutrition" class="tab-btn" onclick="switchDashboardTab('nutrition')">Nutrition & Recovery</button>
+      </div>
+
+      <div id="tab-content-area" class="tab-body mt-4">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </main>
+
+  <script src="/static/js/script.js"></script>
+</body>
+</html>
